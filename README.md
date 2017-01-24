@@ -1,2 +1,2 @@
 # Olio-ohjelmointi
-## C#
+## vko2 harkat
