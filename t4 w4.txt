@@ -1,0 +1,83 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tehtavat_w4
+{
+    class Program
+    {
+        /* Toteuta Vehicle-luokan ohjelmointi sek‰ p‰‰ohjelma, 
+         * jolla luot olion Vehicle-luokasta. Muuta olion arvoja ja 
+         * tulosta olion arvoja konsolille.
+         */
+
+        static void Main(string[] args)
+        {
+            Vehicle Mersu;         //luodaan Mersu olio
+            Mersu = new Vehicle(); //varataan oliolle muistia
+
+            Mersu.SetName("pekan mersu");
+            Mersu.SetSpeed(200);
+            Mersu.SetTyres(4);
+            //asetetaan arvot
+
+            Mersu.PrintData();
+            Console.WriteLine(Mersu.ToString());
+        }
+    }
+}
+-----------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tehtavat_w4
+{
+    class Vehicle
+    {
+        string Name;
+        int Speed;
+        int Tyres;
+
+        public Vehicle()          //konstruktori
+        {
+            //tehtavaan ei tarvitse asettaa parametrien arvoja
+        }
+        public string GetName()
+        {
+            return this.Name;
+        }
+        public void SetName(string s)
+        {
+            this.Name = s;
+        }
+        public int GetSpeed()
+        {
+            return this.Speed;
+        }
+        public void SetSpeed(int i)
+        {
+            this.Speed = i;
+        }
+        public int GetTyres()
+        {
+            return this.Tyres;
+        }
+        public void SetTyres(int i)
+        {
+            this.Tyres = i;
+        }
+        public void PrintData()     //printataan suoraan  console writelinella Name, Speed ja Tyres
+        {
+            Console.WriteLine("Ajoneuvon nimi: " +  Name + ", " + "nopeus: " + Speed + ", " + "renkaiden maara: " + Tyres);
+        }
+        public override string ToString()   //ylikirjoitetaan C#:n oma metodi
+        {
+            return "Ajoneuvon nimi: " + Name + "," + "nopeus: " + Speed.ToString() + "," + "renkaiden maara: " + Tyres.ToString();  //palautetaan Name, Speed ja Tyres
+        }
+    }
+}

@@ -1,0 +1,139 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace viikkotehtavat
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array1 = new int[7];
+            Luokka[] opiskelijat = new Luokka[7];
+
+            opiskelijat[0] = new Luokka("Jaakko", 3, "K4444", 23, 180, 80);
+            opiskelijat[1] = new Luokka("Mara", 5, "K9999", 50, 150, 100);
+            opiskelijat[2] = new Luokka("Katja", 4, "K1111", 20, 170, 50);
+            opiskelijat[3] = new Luokka("Mari", 1, "K2323", 23, 150, 45);
+            opiskelijat[4] = new Luokka("Pertti", 2, "K1111", 12, 180, 78);
+            opiskelijat[5] = new Luokka("James", 3, "K2555", 19, 174, 79);
+            opiskelijat[6] = new Luokka("Nanonano", 0, "K1001", 21, 170, 80);
+
+        for (int i = 0; i < opiskelijat.Length;i++)
+            {
+                opiskelijat[i].PrintData();
+                opiskelijat[i].GoToSchool();
+            }
+        }
+    }
+}
+-----------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace viikkotehtavat
+{
+    class Luokka
+    {
+        String Nimi;
+        int Arvosana;
+        String Opiskelijatunnus;
+        int Ika;
+        int Pituus;
+        int Paino;
+
+        public Luokka() //konstruktori
+        {
+
+        }
+
+        public Luokka(string nimi, int arvosana, string opiskelijatunnus, int ika, int pituus, int paino)
+            //luotiin konstruktori
+        {
+            Nimi = nimi;
+            Arvosana = arvosana;
+            Opiskelijatunnus = opiskelijatunnus;
+            Ika = ika;
+            Pituus = pituus;
+            Paino = paino;
+        }
+
+        public string GetNimi()
+        {
+            return this.Nimi;
+        }
+        public void SetNimi(string s)
+        {
+            this.Nimi = s;
+        }
+
+        public int GetArvosana()
+        {
+            return this.Arvosana;
+        }
+        public void SetArvosana(int b)
+        {
+            this.Arvosana = b;
+        }
+
+        public string GetOpiskelijatunnus()
+        {
+            return this.Opiskelijatunnus;
+        }
+        public void SetOpiskelijatunnus(string c)
+        {
+            this.Opiskelijatunnus = c;
+        }
+
+        public int GetIka()
+        {
+            return this.Ika;
+        }
+        public void SetIka(int i)
+        {
+            this.Ika = i;
+        }
+
+        public int GetPituus()
+        {
+            return this.Pituus;
+        }
+        public void SetPituus(int i)
+        {
+            this.Pituus = i;
+        }
+
+        public int GetPaino()
+        {
+            return this.Paino;
+        }
+        public void SetPaino(int i)
+        {
+            this.Paino = i;
+        }
+
+        public void GoToSchool()
+        {
+            if (Arvosana < 3)
+            {
+                Console.WriteLine("Olet tyhma! kay koulussa!");
+            }
+            if (Arvosana >= 3)
+            {
+                Console.WriteLine("Olet viisas! Olet kaynyt koulussa.");
+            }
+        }
+
+        public void PrintData()
+        {
+            Console.WriteLine();
+            Console.WriteLine(Nimi + ", " + "keskiarvosi: " + Arvosana + ", " + "ID: " + Opiskelijatunnus + ", " + "Ika: " + Ika + ", " + "cm: " + Pituus + ", " + "kg: " + Paino);
+           
+        }
+    }
+}

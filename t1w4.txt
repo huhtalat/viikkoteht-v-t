@@ -1,0 +1,78 @@
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication6
+{
+    class Program
+    {
+        /* Teht‰v‰n‰si on ohjelmoida kiukaan toiminta. Kiuas pit‰‰ pysty‰ laittamaan p‰‰lle ja pois,
+         *  sek‰ sen l‰mpˆtilaa ett‰ sen antamaa kosteutta pit‰‰ pysty‰ s‰‰t‰m‰‰n (arvoja ei ole rajattu).
+UML
+Suunnittele Kiuas-luokan ominaisuudet ja toiminnot UML-luokkakaaviona.
+Ohjelmointi
+
+Toteuta Kiuas-luokan ohjelmointi sek‰ p‰‰ohjelma, jolla luot olion Kiuas-luokasta. S‰‰d‰ kiuas-oliota erilaisilla arvoilla,
+j‰t‰ Console.WriteLine()-tulostuslauseet ohjelmaasi, jotta kiuas-olion k‰ytt‰minen j‰‰ n‰kyville. */
+
+        static void Main(string[] args)
+        {
+            Kiuas Saunamajuri;         //luodaan Saunamajuri olio
+            Saunamajuri = new Kiuas(); //varataan oliolle muistia
+
+            Saunamajuri.SetOnoff(true);
+            Saunamajuri.SetCelcius(85.0f);
+            Saunamajuri.SetKosteus(0.60f);
+            //asetetaan arvot
+
+            Console.WriteLine(Saunamajuri.GetOnoff() +" " + "kiuas on paalla");
+            Console.WriteLine(Saunamajuri.GetCelcius());
+            Console.WriteLine(Saunamajuri.GetKosteus());
+        }
+    }
+}
+_____________________________________________________________________________________________________
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication6
+{
+    class Kiuas
+    {
+        float Celcius;
+        float Kosteus;
+        bool Onoff;
+
+        public Kiuas()          //konstruktori
+        {
+            //tehtavaan ei tarvitse asettaa parametrien arvoja
+        }
+
+        public float GetCelcius()
+        {
+            return this.Celcius;
+        }
+        public void SetCelcius(float j)
+        {
+            this.Celcius = j;
+        }
+        public float GetKosteus()
+        {
+            return this.Kosteus;
+        }
+        public void SetKosteus(float i)
+        {
+            this.Kosteus = i;
+        }
+        public bool GetOnoff()
+        {
+            return this.Onoff;
+        }
+        public void SetOnoff(bool x)
+        {
+            this.Onoff = x;
+        }
+    }
+}
