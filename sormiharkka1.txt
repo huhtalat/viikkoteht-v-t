@@ -1,0 +1,50 @@
+﻿//Sormiharjoitus: Käyttäjien nimet aakkosjärjestykseen
+// Tee ohjelma joka kysyy käyttäjältä viisi(5) etunimeä.
+// Tämän jälkeen ohjelma näyttää nimet annetussa järjestyksessä
+// sekä aakkosjärjestyksessä.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace v1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String[] nimet;
+            String[] aakkosjarjestys;
+            nimet = new String[5];
+            aakkosjarjestys = new String[5];          //otetaan aakkosjärjestykseen nimet
+
+          Console.WriteLine("Anna 5 etunimeä");
+          Console.WriteLine();
+
+            for (int i = 0; i < nimet.Length; i++)
+            {
+                Console.WriteLine("Anna nimi nro. " + i);
+                Console.WriteLine();
+                nimet[i] = Console.ReadLine();
+            }
+
+            aakkosjarjestys = nimet;
+            Array.Sort(aakkosjarjestys);             //otetaan nimet talteen ja järjestykseen
+
+            for (int i = 0; i < nimet.Length; i++)
+            {
+                Console.WriteLine(nimet[i]);
+            }
+
+                Console.WriteLine();
+                Console.WriteLine("nimet aakkosjärjestyksessä:");
+
+            for (int i = 0; i < aakkosjarjestys.Length; i++)       //aakkosjärjestyslooppi
+            {
+                Console.WriteLine(aakkosjarjestys[i]);             //tulostetaan aakkosjärjestyksellä
+            }
+        }
+    }
+}

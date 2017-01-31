@@ -1,0 +1,60 @@
+/*Sormiharjoitus2: Lotto 7/40
+Suomalaisessa Lotossa arvotaan seitsemän (7) numeroa 40:sta.
+Tee ohjelma, joka arpoo käyttäjän haluaman määrän Lotto-rivejä.
+Rivit tulostetaan konsolille seuraavasti:
+
+
+	Anna arvottavien rivien määrä > 3 [Enter]
+	Rivi 1: 1,4,14,24,34,39,40
+	Rivi 2: 2,5,15,21,31,37,38
+	Rivi 3: 15,16,17,20,30,31,34
+    ****************************************************************/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace v3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int rowNro;                 //luodaan rivinumero muuttujaksi
+            int[] rivi = new int[7];    //arreyta varten rivimuuttuja
+            Random rnd = new Random();  //alustetaan randomi numeroita varten
+
+            Console.WriteLine("Tervetuloa pelaamaan saunamajurin lottopelia!"); //alkupuhuttelu
+            Console.WriteLine("Kuinka monta rivia laitetaan?");
+            Int32.TryParse(Console.ReadLine(), out rowNro);     //otetaan asiakkaan rivinumero talteen
+
+            for (int i = 0; i < rowNro; i++)     //Kerrotaan ohjelmalle rivinumeroiden maarat
+            {
+                for (int j = 0; j < 7; j++) //tehdaan viela toinen luuppi lottonumeroita varten
+                {
+                    {
+                        do
+                        {
+                            rivi[j] = rnd.Next(1, 40);      //maaritetaan numeroiksi 1-40
+                        } while (!rivi.Contains(rivi[j]));  //poistetaan duplikaatio kysymalla containssilta sisaltaako rivi arrey arvotun numeron ja arvotaan niin kauan kunnes se ei ole
+                        }
+                }
+                TulostaRivi(rivi, i);                     //tulostus ulkommaiselle luupille
+            }
+        }
+
+        static public void TulostaRivi(int[] rivi, int riviNumero)      //tulostusta varten tehty metodi
+        {
+            string tulostus = "";       //alustetaan tulostusmuuttuja
+            for (int i = 0; i < rivi.Length; i++)       //kaydaan lavitse jokainen rivin alkio
+            {
+                Array.Sort(rivi);           //laitetaan numerot jarjestykseen
+                tulostus += rivi[i];        //laitetaan numerot tyylikkaaseen potkoon
+                tulostus += "; ";           //lisataan valilyonnit ja puolipisteet numeroiden valiin
+            }
+            Console.WriteLine("Rivi " + (riviNumero + 1) + ";" + tulostus);     //datan tulostus haluttuun muotoon
+        }
+    }
+}
